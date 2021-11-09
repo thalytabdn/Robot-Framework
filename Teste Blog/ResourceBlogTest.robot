@@ -30,7 +30,7 @@ Fechar navegador
 Acessar o post "${TEXTO_PESQUISA}"
   Pesquisar por um post com "${TEXTO_PESQUISA}"
   Click Element  ${LINK_POST}
-
+  Wait Until Page Contains   O que é Robot Framework?
 
 Conferir se a imagem do robô aparece
   Page Should Contain Image  ${IMG_ROBO}

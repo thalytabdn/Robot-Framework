@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.8.10 on linux)" generated="20211108 15:05:58.331" rpa="false" schemaversion="2">
+<suite id="s1" name="Test" source="/home/thalyta/git/Robot-Framework/qaninja/test.robot">
+<test id="s1-t1" name="Deve retornar mensagem de boas vindas">
+<kw name="Welcome" library="app">
+<var>${result}</var>
+<arg>Thalyta</arg>
+<msg timestamp="20211108 15:05:58.353" level="INFO">${result} = Olá Thalyta, bem vinda ao curso básico de Robot Framework</msg>
+<status status="PASS" starttime="20211108 15:05:58.353" endtime="20211108 15:05:58.353"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}</arg>
+<arg>Olá Thalyta, bem vinda ao cuRso básico de Robot Framework</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20211108 15:05:58.355" level="FAIL">Olá Thalyta, bem vinda ao curso básico de Robot Framework != Olá Thalyta, bem vinda ao cuRso básico de Robot Framework</msg>
+<status status="FAIL" starttime="20211108 15:05:58.354" endtime="20211108 15:05:58.355"/>
+</kw>
+<status status="FAIL" starttime="20211108 15:05:58.352" endtime="20211108 15:05:58.356">Olá Thalyta, bem vinda ao curso básico de Robot Framework != Olá Thalyta, bem vinda ao cuRso básico de Robot Framework</status>
+</test>
+<status status="FAIL" starttime="20211108 15:05:58.332" endtime="20211108 15:05:58.356"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

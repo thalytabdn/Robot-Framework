@@ -1,96 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.8.10 on linux)" generated="20211108 14:16:33.818" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.2 (Python 3.8.10 on linux)" generated="20211108 14:27:56.125" rpa="false" schemaversion="2">
 <suite id="s1" name="TesteBlog" source="/home/thalyta/git/Robot-Framework/Teste Blog/TesteBlog.robot">
-<test id="s1-t1" name="Caso de Teste 02: Ler um post">
-<kw name="Acessar a página do blog" library="ResourceBlogTest">
+<test id="s1-t1" name="Caso de Teste 01: Pesquisar por um post">
+<kw name="Acessar a página do blog" library="ResourceBlogTest" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20211108 14:16:33.990" level="INFO">Opening browser 'Chrome' to base url 'http://robotizandotestes.blogspot.com/'.</msg>
-<status status="PASS" starttime="20211108 14:16:33.989" endtime="20211108 14:16:40.553"/>
+<msg timestamp="20211108 14:27:56.300" level="INFO">Opening browser 'Chrome' to base url 'http://robotizandotestes.blogspot.com/'.</msg>
+<status status="PASS" starttime="20211108 14:27:56.299" endtime="20211108 14:28:01.950"/>
 </kw>
 <kw name="Title Should Be" library="SeleniumLibrary">
 <arg>Robotizando Testes</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<msg timestamp="20211108 14:16:40.573" level="INFO">Page title is 'Robotizando Testes'.</msg>
-<status status="PASS" starttime="20211108 14:16:40.554" endtime="20211108 14:16:40.573"/>
+<msg timestamp="20211108 14:28:01.974" level="INFO">Page title is 'Robotizando Testes'.</msg>
+<status status="PASS" starttime="20211108 14:28:01.952" endtime="20211108 14:28:01.974"/>
 </kw>
-<status status="PASS" starttime="20211108 14:16:33.989" endtime="20211108 14:16:40.574"/>
+<status status="PASS" starttime="20211108 14:27:56.299" endtime="20211108 14:28:01.975"/>
+</kw>
+<kw name="Pesquisar por um post com &quot;Season Premiere: Introdução ao Robot Framework&quot;" library="ResourceBlogTest" sourcename="Pesquisar por um post com &quot;${TEXTO_PESQUISA}&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>locator=${BTN_PESQUISA}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20211108 14:28:01.981" endtime="20211108 14:28:02.060"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTN_PESQUISA}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211108 14:28:02.061" level="INFO">Clicking button 'css=button.search-expand.touch-icon-button'.</msg>
+<status status="PASS" starttime="20211108 14:28:02.060" endtime="20211108 14:28:02.127"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${INPUT_PESQUISAR}</arg>
+<arg>${TEXTO_PESQUISA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211108 14:28:02.129" level="INFO">Typing text 'Season Premiere: Introdução ao Robot Framework' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20211108 14:28:02.127" endtime="20211108 14:28:02.363"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SUBMIT_PESQUISAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211108 14:28:02.364" level="INFO">Clicking element 'css=input.search-action.flat-button'.</msg>
+<status status="PASS" starttime="20211108 14:28:02.364" endtime="20211108 14:28:04.657"/>
+</kw>
+<status status="PASS" starttime="20211108 14:28:01.977" endtime="20211108 14:28:04.657"/>
+</kw>
+<kw name="Conferir mensagem de pesquisa por &quot;Mostrando postagens que correspondem à pesquisa por Season Premiere: Introdução ao Robot Framework&quot;" library="ResourceBlogTest" sourcename="Conferir mensagem de pesquisa por &quot;${MENSAGEM_DESEJADA}&quot;">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${MENSAGEM_DESEJADA}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211108 14:28:04.695" level="INFO">Current page contains text 'Mostrando postagens que correspondem à pesquisa por Season Premiere: Introdução ao Robot Framework'.</msg>
+<status status="PASS" starttime="20211108 14:28:04.658" endtime="20211108 14:28:04.695"/>
+</kw>
+<status status="PASS" starttime="20211108 14:28:04.657" endtime="20211108 14:28:04.695"/>
+</kw>
+<kw name="Fechar navegador" library="ResourceBlogTest" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211108 14:28:04.696" endtime="20211108 14:28:04.782"/>
+</kw>
+<status status="PASS" starttime="20211108 14:28:04.695" endtime="20211108 14:28:04.782"/>
+</kw>
+<status status="PASS" starttime="20211108 14:27:56.298" endtime="20211108 14:28:04.782"/>
+</test>
+<test id="s1-t2" name="Caso de Teste 02: Ler um post">
+<kw name="Acessar a página do blog" library="ResourceBlogTest" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211108 14:28:04.786" level="INFO">Opening browser 'Chrome' to base url 'http://robotizandotestes.blogspot.com/'.</msg>
+<status status="PASS" starttime="20211108 14:28:04.785" endtime="20211108 14:28:10.196"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Robotizando Testes</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211108 14:28:10.204" level="INFO">Page title is 'Robotizando Testes'.</msg>
+<status status="PASS" starttime="20211108 14:28:10.197" endtime="20211108 14:28:10.204"/>
+</kw>
+<status status="PASS" starttime="20211108 14:28:04.784" endtime="20211108 14:28:10.204"/>
 </kw>
 <kw name="Acessar o post &quot;Season Premiere: Introdução ao Robot Framework&quot;" library="ResourceBlogTest" sourcename="Acessar o post &quot;${TEXTO_PESQUISA}&quot;">
 <kw name="Pesquisar por um post com &quot;${TEXTO_PESQUISA}&quot;" library="ResourceBlogTest" sourcename="Pesquisar por um post com &quot;${TEXTO_PESQUISA}&quot;">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>locator=${BTN_PESQUISA}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20211108 14:16:40.578" endtime="20211108 14:16:40.621"/>
+<status status="PASS" starttime="20211108 14:28:10.207" endtime="20211108 14:28:10.244"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${BTN_PESQUISA}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20211108 14:16:40.621" level="INFO">Clicking button 'css=button.search-expand.touch-icon-button'.</msg>
-<status status="PASS" starttime="20211108 14:16:40.621" endtime="20211108 14:16:40.686"/>
+<msg timestamp="20211108 14:28:10.245" level="INFO">Clicking button 'css=button.search-expand.touch-icon-button'.</msg>
+<status status="PASS" starttime="20211108 14:28:10.245" endtime="20211108 14:28:10.315"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${INPUT_PESQUISAR}</arg>
 <arg>${TEXTO_PESQUISA}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20211108 14:16:40.687" level="INFO">Typing text 'Season Premiere: Introdução ao Robot Framework' into text field 'name=q'.</msg>
-<status status="PASS" starttime="20211108 14:16:40.687" endtime="20211108 14:16:40.842"/>
+<msg timestamp="20211108 14:28:10.316" level="INFO">Typing text 'Season Premiere: Introdução ao Robot Framework' into text field 'name=q'.</msg>
+<status status="PASS" starttime="20211108 14:28:10.316" endtime="20211108 14:28:10.601"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${SUBMIT_PESQUISAR}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20211108 14:16:40.843" level="INFO">Clicking element 'css=input.search-action.flat-button'.</msg>
-<status status="PASS" starttime="20211108 14:16:40.842" endtime="20211108 14:16:43.255"/>
+<msg timestamp="20211108 14:28:10.602" level="INFO">Clicking element 'css=input.search-action.flat-button'.</msg>
+<status status="PASS" starttime="20211108 14:28:10.601" endtime="20211108 14:28:13.246"/>
 </kw>
-<status status="PASS" starttime="20211108 14:16:40.576" endtime="20211108 14:16:43.255"/>
+<status status="PASS" starttime="20211108 14:28:10.206" endtime="20211108 14:28:13.246"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${LINK_POST}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20211108 14:16:43.255" level="INFO">Clicking element 'xpath=//a[contains(text(), 'Season Premiere: Introdução ao Robot Framework')]'.</msg>
-<status status="PASS" starttime="20211108 14:16:43.255" endtime="20211108 14:16:45.617"/>
+<msg timestamp="20211108 14:28:13.247" level="INFO">Clicking element 'xpath=//a[contains(text(), 'Season Premiere: Introdução ao Robot Framework')]'.</msg>
+<status status="PASS" starttime="20211108 14:28:13.246" endtime="20211108 14:28:16.404"/>
 </kw>
-<status status="PASS" starttime="20211108 14:16:40.575" endtime="20211108 14:16:45.618"/>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>O que é Robot Framework?</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20211108 14:28:16.404" endtime="20211108 14:28:16.432"/>
+</kw>
+<status status="PASS" starttime="20211108 14:28:10.205" endtime="20211108 14:28:16.432"/>
 </kw>
 <kw name="Conferir se a imagem do robô aparece" library="ResourceBlogTest">
 <kw name="Page Should Contain Image" library="SeleniumLibrary">
 <arg>${IMG_ROBO}</arg>
 <doc>Verifies image identified by ``locator`` is found from current page.</doc>
-<msg timestamp="20211108 14:16:45.709" level="INFO">Current page contains image 'xpath=//img[contains(@src,'if_Robot_18_385830_grande')]'.</msg>
-<status status="PASS" starttime="20211108 14:16:45.629" endtime="20211108 14:16:45.709"/>
+<msg timestamp="20211108 14:28:16.458" level="INFO">Current page contains image 'xpath=//img[contains(@src,'if_Robot_18_385830_grande')]'.</msg>
+<status status="PASS" starttime="20211108 14:28:16.433" endtime="20211108 14:28:16.458"/>
 </kw>
-<status status="PASS" starttime="20211108 14:16:45.627" endtime="20211108 14:16:45.710"/>
+<status status="PASS" starttime="20211108 14:28:16.432" endtime="20211108 14:28:16.459"/>
 </kw>
 <kw name="Conferir se o texto &quot;nesse post vou apresentar-lhes o astro deste blog&quot; aparece" library="ResourceBlogTest" sourcename="Conferir se o texto &quot;${TEXTO_DESEJADO}&quot; aparece">
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>text=${TEXTO_DESEJADO}</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20211108 14:16:45.740" level="INFO">Current page contains text 'nesse post vou apresentar-lhes o astro deste blog'.</msg>
-<status status="PASS" starttime="20211108 14:16:45.711" endtime="20211108 14:16:45.740"/>
+<msg timestamp="20211108 14:28:16.501" level="INFO">Current page contains text 'nesse post vou apresentar-lhes o astro deste blog'.</msg>
+<status status="PASS" starttime="20211108 14:28:16.461" endtime="20211108 14:28:16.502"/>
 </kw>
-<status status="PASS" starttime="20211108 14:16:45.710" endtime="20211108 14:16:45.740"/>
+<status status="PASS" starttime="20211108 14:28:16.460" endtime="20211108 14:28:16.502"/>
 </kw>
-<kw name="Fechar navegador" library="ResourceBlogTest">
+<kw name="Fechar navegador" library="ResourceBlogTest" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20211108 14:16:45.742" endtime="20211108 14:16:45.822"/>
+<status status="PASS" starttime="20211108 14:28:16.503" endtime="20211108 14:28:16.578"/>
 </kw>
-<status status="PASS" starttime="20211108 14:16:45.741" endtime="20211108 14:16:45.822"/>
+<status status="PASS" starttime="20211108 14:28:16.503" endtime="20211108 14:28:16.578"/>
 </kw>
-<status status="PASS" starttime="20211108 14:16:33.988" endtime="20211108 14:16:45.823"/>
+<status status="PASS" starttime="20211108 14:28:04.783" endtime="20211108 14:28:16.578"/>
 </test>
-<status status="PASS" starttime="20211108 14:16:33.819" endtime="20211108 14:16:45.827"/>
+<status status="PASS" starttime="20211108 14:27:56.126" endtime="20211108 14:28:16.581"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="TesteBlog">TesteBlog</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="TesteBlog">TesteBlog</stat>
 </suite>
 </statistics>
 <errors>
